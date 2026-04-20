@@ -15,7 +15,13 @@ module.exports = {
           text: '#a6b5c5',
           highlight: '#e0eaf5',
           cyan: '#50c8e8',
-          red: '#d9534f'
+          red: '#d9534f',
+          blue: '#06b6d4',
+          lgreen: '#10b981',
+          lblue: '#22d3ee',
+          llgreen: '#14b8a6',
+          pink: '#f43f5e2',
+          lyellow: '#f59e0b'
         }
       },
       fontFamily: {

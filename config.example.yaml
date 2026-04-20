@@ -1,0 +1,22 @@
+title: "Alliance Fleet Manager"
+allowed:
+  alliance_id:
+    - 99014712
+  corporation_id: []
+  character_id: []
+fleets:
+  - name: "High Sec"
+    squads:
+      - "Mining"
+      - "AFK"
+      - "Idle"
+      - "Combat"
+    motd: "<fontsize=16><b><color=0xffE50000>Welcome to the High Sec Fleet!</color></b></fontsize><br>Please <color=0xff00E500>move yourself</color> to your correct activity.<br><url=https://domain.name.org/>Alliance Fleet Manager</url>"
+  - name: "Wormhole"
+    squads:
+      - "Mining"
+      - "AFK"
+      - "Idle"
+      - "Combat"
+      - "PVP"
+    motd: "<fontsize=16><b><color=0xffE50000>Welcome to the Wormhole Fleet!</color></b></fontsize><br>Please <color=0xff00E500>move yourself</color> to your correct activity.<br><url=https://domain.name.org/>Alliance Fleet Manager</url>"

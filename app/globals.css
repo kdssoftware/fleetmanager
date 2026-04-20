@@ -7,7 +7,6 @@ body {
   min-height: 100vh;
 }
 
-/* EVE-style scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
