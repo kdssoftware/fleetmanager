@@ -1,0 +1,25 @@
+{
+  "name": "ttfleets",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "better-sqlite3": "^12.9.0",
+    "next": "^16.2.4",
+    "next-auth": "^4.24.14",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/react": "19.2.14",
+    "typescript": "6.0.3"
+  }
+}

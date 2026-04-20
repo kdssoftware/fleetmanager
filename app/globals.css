@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+  background-color: #040608;
+  background-image: radial-gradient(circle at 50% 50%, #0a1017 0%, #020304 100%);
+  color: #a6b5c5;
+  min-height: 100vh;
+}
+
+/* EVE-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1218;
+  border-left: 1px solid #2a3644;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3644;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4786a3;
+}
