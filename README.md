@@ -28,6 +28,8 @@ docker compose -f docker-compose.yml up --build -d
 
 ### Screenshots
 
+<img width="779" height="670" alt="Screenshot 2026-06-09 at 22 07 30" src="https://github.com/user-attachments/assets/933ac401-ff4d-4325-a0a7-7d5a2c6cbe16" />
+
 <img width="824" height="576" alt="screenshotfleetmanager" src="https://github.com/user-attachments/assets/8282791b-ea6c-4332-80ee-c8cef46f371a" />
 
 <img width="774" height="651" alt="Screenshot 2026-06-07 at 14 02 40" src="https://github.com/user-attachments/assets/e831f686-3676-4945-a4ef-2b20ce3568ad" />
