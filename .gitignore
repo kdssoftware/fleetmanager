@@ -6,3 +6,8 @@ data/fleet.db
 
 config.yaml
 .env
+
+deploy.sh
+bin/
+lib/python3.9/
+pyvenv.cfg
