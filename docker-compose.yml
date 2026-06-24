@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "$PORT:3000"
+      - "$PORT:$PORT"
     volumes:
       - ./data:/app/data
       - ./:/app/host:ro
