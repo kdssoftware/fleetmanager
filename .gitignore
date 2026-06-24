@@ -1,7 +1,7 @@
 node_modules/
 .next/
 
-data/fleet.db
+data/fleets.db
 .aider*
 
 config.yaml
