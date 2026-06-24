@@ -254,6 +254,7 @@ app.prepare().then(() => {
 
         const accessToken = await refreshAccessToken(refreshToken);
         if (!accessToken) {
+          console.error(`Failed to refresh access token for character ${characterId}`);
           socket.emit(SOCKET_EVENTS.MY_FLEET_UPDATE, { fleet_id: null, role: null });
           return;
         }
@@ -264,6 +265,7 @@ app.prepare().then(() => {
         }
         socket.emit(SOCKET_EVENTS.MY_FLEET_UPDATE, fleet || { fleet_id: null, role: null });
       } catch (e) {
+        console.error("Error in REQUEST_MY_FLEET:", e);
         socket.emit(SOCKET_EVENTS.MY_FLEET_UPDATE, { fleet_id: null, role: null });
       }
     });

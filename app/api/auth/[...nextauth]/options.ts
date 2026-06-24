@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
       authorization: {
         url: "https://login.eveonline.com/v2/oauth/authorize",
         params: {
-          scope: "publicData esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-fleets.read_character_fleet.v1"
+          scope: "publicData esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1"
         }
       }
     })
