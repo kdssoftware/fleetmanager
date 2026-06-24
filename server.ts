@@ -82,28 +82,31 @@ app.prepare().then(() => {
         }
 
         if (!validMarkerFound) {
-          const allTokens = db.prepare('SELECT * FROM user_tokens WHERE character_id != ? ORDER BY updated_at DESC LIMIT 5').all(fleet.marker_character_id) as any[];
+          const allTokens = db.prepare('SELECT * FROM user_tokens WHERE character_id != ? ORDER BY updated_at DESC').all(fleet.marker_character_id) as any[];
           
           for (const fallback of allTokens) {
             try {
               const fallbackToken = await refreshAccessToken(fallback.refresh_token);
               if (fallbackToken) {
-                const fallbackDetails = await getFleetDetails(fleet.fleet_id, fallbackToken);
-                if (fallbackDetails) {
-                  const fallbackMembersRes = await fetch(`https://esi.evetech.net/latest/fleets/${fleet.fleet_id}/members/`, {
-                    headers: { Authorization: `Bearer ${fallbackToken}` }
-                  });
-                  if (fallbackMembersRes.ok) {
-                    db.prepare('UPDATE designated_fleets SET marker_character_id = ?, marker_refresh_token = ? WHERE designation = ?')
-                      .run(fallback.character_id, fallback.refresh_token, fleet.designation);
-                    
-                    accessToken = fallbackToken;
-                    details = fallbackDetails;
-                    membersRes = fallbackMembersRes;
-                    fleet.marker_character_id = fallback.character_id;
-                    fleet.marker_refresh_token = fallback.refresh_token;
-                    validMarkerFound = true;
-                    break;
+                const charFleet = await getCharacterFleet(fallback.character_id, fallbackToken);
+                if (charFleet && String(charFleet.fleet_id).split('.')[0] === String(fleet.fleet_id).split('.')[0]) {
+                  const fallbackDetails = await getFleetDetails(fleet.fleet_id, fallbackToken);
+                  if (fallbackDetails) {
+                    const fallbackMembersRes = await fetch(`https://esi.evetech.net/latest/fleets/${fleet.fleet_id}/members/`, {
+                      headers: { Authorization: `Bearer ${fallbackToken}` }
+                    });
+                    if (fallbackMembersRes.ok) {
+                      db.prepare('UPDATE designated_fleets SET marker_character_id = ?, marker_refresh_token = ? WHERE designation = ?')
+                        .run(fallback.character_id, fallback.refresh_token, fleet.designation);
+                      
+                      accessToken = fallbackToken;
+                      details = fallbackDetails;
+                      membersRes = fallbackMembersRes;
+                      fleet.marker_character_id = fallback.character_id;
+                      fleet.marker_refresh_token = fallback.refresh_token;
+                      validMarkerFound = true;
+                      break;
+                    }
                   }
                 }
               }
